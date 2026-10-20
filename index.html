@@ -1,0 +1,353 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Jose Antonio Soriano — Infrastructure Engineer</title>
+<meta name="description" content="Senior Platform & Infrastructure Engineer. Twenty years of orchestration and automation, now building toward AI safety infrastructure.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=IBM+Plex+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ink:#0B1220;
+    --ink-2:#101A2E;
+    --parchment:#EDE6D6;
+    --parchment-dim:#B8B0A0;
+    --copper:#B87333;
+    --copper-bright:#D68A47;
+    --teal:#4A7C82;
+    --teal-bright:#6FA3A9;
+    --line:rgba(237,230,214,0.14);
+  }
+  *{margin:0;padding:0;box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    background:var(--ink);
+    color:var(--parchment);
+    font-family:'IBM Plex Sans',sans-serif;
+    line-height:1.6;
+    background-image:
+      linear-gradient(var(--line) 1px, transparent 1px),
+      linear-gradient(90deg, var(--line) 1px, transparent 1px);
+    background-size:48px 48px;
+    background-position:-1px -1px;
+  }
+  a{color:inherit;}
+  a:focus-visible{outline:2px solid var(--copper-bright);outline-offset:3px;}
+  .wrap{max-width:920px;margin:0 auto;padding:0 24px;}
+
+  /* HERO */
+  header.hero{padding:120px 0 80px;border-bottom:1px solid var(--line);}
+  .coord{
+    font-family:'IBM Plex Mono',monospace;
+    font-size:12px;
+    letter-spacing:0.14em;
+    color:var(--copper);
+    text-transform:uppercase;
+    margin-bottom:20px;
+  }
+  h1{
+    font-family:'IBM Plex Mono',monospace;
+    font-weight:600;
+    font-size:clamp(30px,6vw,52px);
+    letter-spacing:-0.01em;
+    margin-bottom:16px;
+  }
+  .role-line{font-size:18px;color:var(--parchment-dim);max-width:600px;margin-bottom:32px;}
+  .role-line strong{color:var(--teal-bright);font-weight:600;}
+  .hero-links{display:flex;gap:16px;flex-wrap:wrap;}
+  .hero-links a{
+    font-family:'IBM Plex Mono',monospace;
+    font-size:13px;
+    letter-spacing:0.04em;
+    text-decoration:none;
+    border:1px solid var(--line);
+    padding:10px 18px;
+    transition:border-color .2s, color .2s;
+  }
+  .hero-links a:hover{border-color:var(--copper);color:var(--copper-bright);}
+  .hero-links a.primary{background:var(--copper);color:var(--ink);border-color:var(--copper);font-weight:600;}
+  .hero-links a.primary:hover{background:var(--copper-bright);color:var(--ink);}
+
+  /* SECTIONS */
+  .section{padding:64px 0;border-bottom:1px solid var(--line);}
+  .section-label{
+    font-family:'IBM Plex Mono',monospace;
+    font-size:12px;
+    letter-spacing:0.18em;
+    text-transform:uppercase;
+    color:var(--parchment-dim);
+    display:flex;
+    align-items:center;
+    gap:14px;
+    margin-bottom:16px;
+  }
+  .section-label::after{content:'';flex:1;height:1px;background:var(--line);}
+  .section-note{
+    font-family:'IBM Plex Mono',monospace;
+    font-size:12px;
+    color:var(--parchment-dim);
+    margin-bottom:32px;
+  }
+
+  /* PROJECT CARDS */
+  .field-note{
+    border:1px solid var(--line);
+    background:linear-gradient(180deg, var(--ink-2), var(--ink));
+    padding:28px 28px 24px;
+    margin-bottom:20px;
+    transition:border-color .25s, transform .25s;
+  }
+  .field-note:hover{border-color:var(--copper);transform:translateY(-2px);}
+  .note-head{
+    display:flex;
+    justify-content:space-between;
+    align-items:baseline;
+    gap:12px;
+    flex-wrap:wrap;
+    margin-bottom:10px;
+  }
+  .sector{
+    font-family:'IBM Plex Mono',monospace;
+    font-size:11px;
+    letter-spacing:0.14em;
+    color:var(--copper);
+    text-transform:uppercase;
+  }
+  .status{
+    font-family:'IBM Plex Mono',monospace;
+    font-size:11px;
+    letter-spacing:0.08em;
+    text-transform:uppercase;
+    color:var(--parchment-dim);
+    display:inline-flex;
+    align-items:center;
+    gap:8px;
+  }
+  .status::before{
+    content:'';
+    width:7px;height:7px;border-radius:50%;
+    background:var(--parchment-dim);
+  }
+  .status.building{color:var(--teal-bright);}
+  .status.building::before{background:var(--teal-bright);}
+  .status.scaffold::before{background:transparent;border:1px solid var(--parchment-dim);}
+  .field-note h3{
+    font-family:'IBM Plex Mono',monospace;
+    font-size:20px;
+    font-weight:600;
+    margin-bottom:10px;
+  }
+  .field-note p{color:var(--parchment-dim);font-size:15px;margin-bottom:14px;max-width:660px;}
+  .field-note p.next{font-size:14px;}
+  .field-note p.next b{
+    font-family:'IBM Plex Mono',monospace;
+    font-weight:500;
+    font-size:11px;
+    letter-spacing:0.12em;
+    text-transform:uppercase;
+    color:var(--parchment);
+    margin-right:6px;
+  }
+  .stack-tags{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:16px;}
+  .stack-tags span{
+    font-family:'IBM Plex Mono',monospace;
+    font-size:11px;
+    color:var(--teal-bright);
+    border:1px solid rgba(74,124,130,0.45);
+    padding:4px 10px;
+    letter-spacing:0.03em;
+  }
+  .repo-link{
+    font-family:'IBM Plex Mono',monospace;
+    font-size:13px;
+    color:var(--copper-bright);
+    text-decoration:none;
+    border-bottom:1px solid transparent;
+  }
+  .repo-link:hover{border-bottom-color:var(--copper-bright);}
+
+  /* ABOUT */
+  .about p{color:var(--parchment-dim);font-size:15px;max-width:680px;margin-bottom:14px;}
+  .about strong{color:var(--parchment);}
+  .trajectory{margin-top:24px;border-left:2px solid var(--copper);padding-left:20px;}
+  .trajectory-step{
+    font-family:'IBM Plex Mono',monospace;
+    font-size:13px;
+    color:var(--parchment-dim);
+    margin-bottom:10px;
+  }
+  .trajectory-step .tag{color:var(--copper);margin-right:8px;}
+
+  /* FOOTER */
+  footer{padding:56px 0 80px;}
+  footer .coord{margin-bottom:24px;}
+  .contact-row{display:flex;gap:24px;flex-wrap:wrap;margin-bottom:32px;}
+  .contact-row a{
+    font-family:'IBM Plex Mono',monospace;
+    font-size:14px;
+    text-decoration:none;
+    border-bottom:1px solid var(--line);
+    padding-bottom:2px;
+  }
+  .contact-row a:hover{color:var(--copper-bright);border-color:var(--copper-bright);}
+  .footer-note{font-size:13px;color:var(--parchment-dim);font-family:'IBM Plex Mono',monospace;}
+
+  @media(max-width:640px){
+    header.hero{padding:80px 0 56px;}
+    .section{padding:48px 0;}
+    .field-note{padding:22px 20px 20px;}
+  }
+  @media (prefers-reduced-motion:reduce){
+    html{scroll-behavior:auto;}
+    .field-note,.hero-links a{transition:none;}
+    .field-note:hover{transform:none;}
+  }
+</style>
+</head>
+<body>
+
+<header class="hero wrap">
+  <div class="coord">20.7° N · 103.3° W · Guadalajara, Jalisco, MX</div>
+  <h1>Jose Antonio Soriano</h1>
+  <p class="role-line">
+    Senior Platform &amp; Infrastructure Engineer. Twenty years building
+    <strong>orchestration, automation, and operations tooling</strong> for
+    large-scale cloud systems. Now pointing that experience at AI safety infrastructure.
+  </p>
+  <div class="hero-links">
+    <a href="#work" class="primary">View the work</a>
+    <a href="https://github.com/ansorca" target="_blank" rel="noopener">GitHub ↗</a>
+    <a href="https://www.linkedin.com/in/ansorca/" target="_blank" rel="noopener">LinkedIn ↗</a>
+  </div>
+</header>
+
+<section class="section" id="work">
+  <div class="wrap">
+    <div class="section-label">Field notes — active projects</div>
+    <p class="section-note">Each card says what the repo contains today, and what comes next.</p>
+
+    <article class="field-note">
+      <div class="note-head">
+        <div class="sector">Sector 01 — Safety enforcement</div>
+        <div class="status building">Working service · containerized</div>
+      </div>
+      <h3>llm-output-safety-gate</h3>
+      <p>A small REST service that scores LLM output for toxicity and PII at the application
+      boundary, so policy holds regardless of what the model does internally. <code>POST /check</code>
+      returns a safety score, a <code>safe</code> verdict, and the flags that fired. Toxicity
+      comes from detoxify, PII from Presidio (emails, phones, names, card numbers, SSNs).
+      Each classifier call has a 10-second timeout and three retries before the service
+      answers 504. Logs are structured JSON and never contain the raw input text.</p>
+      <p class="next"><b>Run it</b><code>docker compose up</code>. Models are baked into the image, so there is no download step. A CI workflow and a test directory are in the repo.</p>
+      <p class="next"><b>Next</b>Refusal-pattern detection, then a hardening layer that turns the scorer into a gateway: API-key auth, rate limiting, ALLOW / REVIEW / BLOCK policy decisions, and an audit log.</p>
+      <div class="stack-tags">
+        <span>Python</span><span>FastAPI</span><span>Presidio</span><span>detoxify</span><span>Docker Compose</span><span>structlog</span>
+      </div>
+      <a class="repo-link" href="https://github.com/ansorca/llm-output-safety-gate" target="_blank" rel="noopener">github.com/ansorca/llm-output-safety-gate →</a>
+    </article>
+
+    <article class="field-note">
+      <div class="note-head">
+        <div class="sector">Sector 02 — Observability</div>
+        <div class="status building">Core built · cloud layer planned</div>
+      </div>
+      <h3>driftwatch</h3>
+      <p>A model drift monitor. It compares a batch of predictions against a baseline
+      using a per-feature Kolmogorov–Smirnov test (via Evidently AI), and ships as a
+      library plus a <code>driftwatch check</code> CLI that exits non-zero when drift is
+      found, so it can gate a CI pipeline. Unit-tested, with ruff, mypy, and pytest
+      required to pass before anything merges.</p>
+      <p class="next"><b>Next</b>PSI as a second test, reading from S3, then an AWS Lambda, CloudWatch alarm, and SNS alert provisioned with Terraform.</p>
+      <div class="stack-tags">
+        <span>Python</span><span>Evidently AI</span><span>CLI</span><span>GitHub Actions CI</span><span>AWS · Terraform (planned)</span>
+      </div>
+      <a class="repo-link" href="https://github.com/ansorca/model-drift-monitor" target="_blank" rel="noopener">github.com/ansorca/model-drift-monitor →</a>
+    </article>
+
+    <article class="field-note">
+      <div class="note-head">
+        <div class="sector">Sector 03 — Platform · Capstone</div>
+        <div class="status scaffold">Scaffolded · build starts here</div>
+      </div>
+      <h3>ai-safety-observability-platform</h3>
+      <p>The capstone: the safety gate and the drift monitor wired into one platform around
+      a real vLLM inference server. The plan is vLLM in CPU mode with a small model
+      (Qwen2.5-0.5B or TinyLlama) on local k3s, watched through Prometheus and Grafana for
+      output drift, safety-gate violations, latency SLOs, and error rates. The repository
+      currently holds only the project's working notes.</p>
+      <p class="next"><b>Next</b>Build and iterate on k3s locally, provision AWS EKS with Terraform for a 48-hour demo window only, then tear it down. CI/CD runs through GitHub Actions.</p>
+      <div class="stack-tags">
+        <span>Kubernetes · k3s</span><span>vLLM</span><span>Prometheus</span><span>Grafana</span><span>Terraform</span><span>Evidently AI</span><span>GitHub Actions</span>
+      </div>
+      <a class="repo-link" href="https://github.com/ansorca/ai-safety-observability-platform" target="_blank" rel="noopener">github.com/ansorca/ai-safety-observability-platform →</a>
+    </article>
+
+    <article class="field-note">
+      <div class="note-head">
+        <div class="sector">Sector 04 — Interpretability tooling</div>
+        <div class="status building">Hooks working · streaming in progress</div>
+      </div>
+      <h3>activation-stager</h3>
+      <p>A utility for capturing a transformer's hidden states during inference without
+      holding them all in RAM. PyTorch forward hooks are registered across every GPT-2
+      layer and fire correctly. The README works through the memory math (about 1 GB per
+      forward pass on Llama-3-8B) and lists exactly what is still broken.</p>
+      <p class="next"><b>Next</b>Move logic into a library layer, write each layer's tensor to a safetensors shard as the hook fires, then verify with a round-trip check and a memory profile.</p>
+      <div class="stack-tags">
+        <span>PyTorch</span><span>Forward hooks</span><span>safetensors</span><span>mmap / async I/O</span><span>Mech interp</span>
+      </div>
+      <a class="repo-link" href="https://github.com/ansorca/activation-stager" target="_blank" rel="noopener">github.com/ansorca/activation-stager →</a>
+    </article>
+
+    <article class="field-note">
+      <div class="note-head">
+        <div class="sector">Sector 05 — Native code</div>
+        <div class="status scaffold">Early commit</div>
+      </div>
+      <h3>rust_knn</h3>
+      <p>A hybrid Rust and Python k-nearest-neighbors classifier, being pulled out of a
+      self-directed machine learning fundamentals challenge into its own standalone
+      repository. Today the repo holds the Cargo project and the Rust source.</p>
+      <p class="next"><b>Next</b>The Python package, a Docker setup, and a README that opens with the problem.</p>
+      <div class="stack-tags">
+        <span>Rust</span><span>Python</span><span>Docker (planned)</span><span>Algorithms</span>
+      </div>
+      <a class="repo-link" href="https://github.com/ansorca/rust_knn" target="_blank" rel="noopener">github.com/ansorca/rust_knn →</a>
+    </article>
+  </div>
+</section>
+
+<section class="section about" id="about">
+  <div class="wrap">
+    <div class="section-label">Survey notes — background</div>
+    <div class="about">
+      <p><strong>Twenty years across IBM and Oracle.</strong> Ten of them as a Principal
+      Member of Technical Staff on Oracle's Fusion Applications SaaS Cloud, building
+      the automation and orchestration that keeps a large cloud estate predictable.
+      Before that, IBM Global Business Services. The work has always had the same shape:
+      build the systems that make everything else reliable.</p>
+      <p>Now targeting <strong>Infrastructure</strong> and <strong>Platform Engineering</strong>
+      roles at remote-first teams, with a deliberate path into ML infrastructure and
+      AI safety engineering. CS degree and an MSc in Finance from Tecnológico de Monterrey.</p>
+      <div class="trajectory">
+        <div class="trajectory-step"><span class="tag">NOW</span>Infrastructure / Platform Engineering</div>
+        <div class="trajectory-step"><span class="tag">NEXT</span>ML Infrastructure</div>
+        <div class="trajectory-step"><span class="tag">HORIZON</span>AI Safety Infrastructure</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer class="wrap">
+  <div class="coord">End of survey</div>
+  <div class="contact-row">
+    <a href="https://github.com/ansorca" target="_blank" rel="noopener">GitHub</a>
+    <a href="https://www.linkedin.com/in/ansorca/" target="_blank" rel="noopener">LinkedIn</a>
+  </div>
+  <div class="footer-note">Guadalajara, Jalisco, MX · open to remote roles, and to relocation for the right one.</div>
+</footer>
+
+</body>
+</html>
